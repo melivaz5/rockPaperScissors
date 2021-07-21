@@ -1,11 +1,11 @@
-const userScore = 0;
-const computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 
 const scoreBoard = document.querySelector(".score-board");
-const result = document.querySelector(".result");
+const result = document.querySelector(".result > p");
 
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
@@ -20,43 +20,40 @@ function getComputerChoice() {
 }
 
 
+function win() {
+    userScore++;
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+}
 
+function lose() {
+    console.log("lost");
+}
+
+function draw() {
+    console.log("draw");
+}
 
 function game(userChoice) {
     const computerChoice = getComputerChoice();
 
-    if (userChoice + computerChoice) {
-        userChoice === "rock" & computerChoice === "scissors"
-        else if() {
-            userChoice === "paper" & computerChoice === "rock"
-        }
-        else if() {
-            userChoice === "scissors" & computerChoice === "rock"
-        }
-        console.log("USER WIN..");
-     } else {
-         console.log("user lose");
-     }
-
-    /*
     switch (userChoice + computerChoice) {
-        case "rs":
-        case "pr":
-        case "sp":
-            console.log("user win!");
+        case "rockscissors":
+        case "paperrock":
+        case "scissorspaper":
+            win();
             break;
-        case "rp":
-        case "ps":
-        case "sr":
-            console.log("user lose!");
+        case "rockpaper":
+        case "paperscissors":
+        case "scissorsrock":
+            lose();
             break;
-        case "rr":
-        case "pp":
-        case "ss":
-            console.log("Its a draw");
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+            draw();
             break;
     }
-    */
 }
 
 
