@@ -26,21 +26,31 @@ function convertFirtsLetter(letter) {
 }
 
 function win(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
     result.innerHTML = convertFirtsLetter(userChoice) + " beats " + convertFirtsLetter(computerChoice) + ". You WIN! ";
+    userChoice_div.classList.add("greenGlow");
+    setTimeout(function() {userChoice_div.classList.remove("greenGlow")}, 400);
 }
 
+
 function lose(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
     result.innerHTML = convertFirtsLetter(userChoice) + " loses to " + convertFirtsLetter(computerChoice) + ". You lost... ";
+    userChoice_div.classList.add("redGlow");
+    setTimeout(function() {userChoice_div.classList.remove("redGlow")}, 400);
 }
 
 function draw(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
     result.innerHTML = convertFirtsLetter(userChoice) + " equals " + convertFirtsLetter(computerChoice) + ". It's a draw. ";
+    userChoice_div.classList.add("greyGlow");
+    setTimeout(function() {userChoice_div.classList.remove("greyGlow")}, 400);
 }
 
 function game(userChoice) {
