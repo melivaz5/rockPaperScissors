@@ -19,19 +19,28 @@ function getComputerChoice() {
     return choices[randomNumber];
 }
 
+function convertFirtsLetter(letter) {
+    if (letter === "rock") return "Rock";
+    if (letter === "paper") return "Papel";
+    return "Scissors";
+}
 
-function win() {
+function win(userChoice, computerChoice) {
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
+    result.innerHTML = convertFirtsLetter(userChoice) + " beats " + convertFirtsLetter(computerChoice) + ". You WIN! ";
 }
 
-function lose() {
-    console.log("lost");
+function lose(userChoice, computerChoice) {
+    computerScore++;
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+    result.innerHTML = convertFirtsLetter(userChoice) + " loses to " + convertFirtsLetter(computerChoice) + ". You lost... ";
 }
 
-function draw() {
-    console.log("draw");
+function draw(userChoice, computerChoice) {
+    result.innerHTML = convertFirtsLetter(userChoice) + " equals " + convertFirtsLetter(computerChoice) + ". It's a draw. ";
 }
 
 function game(userChoice) {
@@ -41,17 +50,17 @@ function game(userChoice) {
         case "rockscissors":
         case "paperrock":
         case "scissorspaper":
-            win();
+            win(userChoice, computerChoice);
             break;
         case "rockpaper":
         case "paperscissors":
         case "scissorsrock":
-            lose();
+            lose(userChoice, computerChoice);
             break;
         case "rockrock":
         case "paperpaper":
         case "scissorsscissors":
-            draw();
+            draw(userChoice, computerChoice);
             break;
     }
 }
