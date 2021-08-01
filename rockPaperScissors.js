@@ -50,7 +50,7 @@ function draw(userChoice, computerChoice) {
     const userChoice_div = document.getElementById(userChoice);
     result.innerHTML = convertFirtsLetter(userChoice) + " equals " + convertFirtsLetter(computerChoice) + ". It's a draw. ";
     userChoice_div.classList.add("greyGlow");
-    setTimeout(function() {userChoice_div.classList.remove("greyGlow")}, 400);
+    setTimeout(function() {userChoice_div.classList.remove("greyGlow")}, 300);
 }
 
 function game(userChoice) {
